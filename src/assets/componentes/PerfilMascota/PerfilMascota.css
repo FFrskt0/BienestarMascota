@@ -1,0 +1,43 @@
+/* src/components/PerfilMascota/PerfilMascota.css */
+.perfil-mascota {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.perfil-mascota__title {
+  margin: 0;
+  color: #17403d;
+}
+
+.perfil-mascota__subtitle {
+  margin: 0.4rem 0 1.5rem;
+  color: #5c6f6e;
+}
+
+.perfil-mascota__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.perfil-mascota__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.perfil-mascota__empty {
+  padding: 2rem;
+  text-align: center;
+  color: #5c6f6e;
+  background: #f1f8f8;
+  border-radius: 14px;
+}
+
+@media (max-width: 768px) {
+  .perfil-mascota__layout {
+    grid-template-columns: 1fr;
+  }
+}
