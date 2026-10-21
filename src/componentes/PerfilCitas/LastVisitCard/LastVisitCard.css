@@ -1,0 +1,7 @@
+.ultima-visita { padding: 1.5rem; background: var(--lz-superficie); border: 1px solid var(--lz-borde); border-radius: 14px; }
+.ultima-visita__top { display: flex; justify-content: space-between; align-items: baseline; }
+.ultima-visita__top h3 { margin: 0; font-family: var(--lz-serif); font-weight: 400; font-size: 1.5rem; color: var(--lz-verde); }
+.ultima-visita__top span { font-size: 0.7rem; color: var(--lz-suave); }
+.ultima-visita__titulo { margin: 1rem 0 0.3rem; font-size: 0.85rem; font-weight: 500; color: var(--lz-verde); }
+.ultima-visita__detalle { margin: 0 0 0.5rem; font-size: 0.78rem; color: var(--lz-suave); }
+.ultima-visita__link { padding: 0; border: none; background: none; color: var(--lz-verde); font-size: 0.75rem; cursor: pointer; }

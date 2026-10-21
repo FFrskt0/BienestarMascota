@@ -1,0 +1,39 @@
+.cita-form { display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; background: var(--lz-superficie); border: 1px solid var(--lz-borde); border-radius: 14px; }
+.cita-form--ok { align-items: flex-start; background: var(--lz-verde-claro); }
+.cita-form__cabecera { display: flex; justify-content: space-between; align-items: baseline; }
+.cita-form__titulo { margin: 0; font-family: var(--lz-serif); font-weight: 400; font-size: 1.9rem; color: var(--lz-verde); }
+.cita-form__oblig { font-size: 0.68rem; color: var(--lz-suave); }
+
+.cita-form__paso { display: flex; flex-direction: column; gap: 0.9rem; margin: 0; padding: 0 0 1.5rem; border: none; border-bottom: 1px solid var(--lz-borde); }
+.cita-form__paso legend { padding: 0; font-family: var(--lz-serif); font-size: 1.3rem; color: var(--lz-verde); }
+.cita-form__num { display: inline-grid; place-items: center; width: 28px; height: 28px; margin-right: 0.5rem; background: var(--lz-verde-claro); border-radius: 50%; font-family: var(--lz-sans); font-size: 0.62rem; }
+.cita-form__ayuda { margin: 0; font-size: 0.72rem; color: var(--lz-suave); }
+
+.cita-form__fila { display: flex; gap: 1rem; }
+.cita-form__campo { display: flex; flex: 1; flex-direction: column; gap: 0.4rem; font-size: 0.75rem; font-weight: 500; color: var(--lz-verde); }
+.cita-form__campo input,
+.cita-form__campo select,
+.cita-form__campo textarea { padding: 0.75rem 0.9rem; border: 1px solid var(--lz-borde); border-radius: 8px; background: #fff; font-family: var(--lz-sans); font-size: 0.85rem; color: var(--lz-texto); }
+.cita-form__campo input:focus,
+.cita-form__campo select:focus,
+.cita-form__campo textarea:focus { outline: 2px solid var(--lz-verde); border-color: transparent; }
+.cita-form__error { font-size: 0.72rem; font-weight: 400; color: #b34a4a; }
+
+.cita-form__info { margin: 0; padding: 0.7rem 0.9rem; background: var(--lz-verde-claro); border-radius: 6px; font-size: 0.75rem; color: var(--lz-verde); }
+
+.cita-form__horas { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.cita-form__hora { flex: 1; min-width: 80px; padding: 0.7rem; border: 1px solid var(--lz-borde); border-radius: 8px; background: #fff; font-size: 0.78rem; cursor: pointer; }
+.cita-form__hora--activa { background: var(--lz-verde); border-color: var(--lz-verde); color: #fff; }
+
+.cita-form__check { display: flex; gap: 0.6rem; font-size: 0.72rem; color: var(--lz-suave); }
+.cita-form__pie { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.75rem; }
+.cita-form__pie p { margin: 0.2rem 0 0; color: var(--lz-suave); }
+.cita-form__aviso { color: var(--lz-suave); font-size: 0.85rem; }
+
+.cita-form__boton { padding: 0.8rem 1.5rem; border: none; border-radius: 999px; background: var(--lz-verde); color: #fff; font-size: 0.85rem; cursor: pointer; }
+.cita-form__boton:hover { background: #1a3d30; }
+
+@media (max-width: 600px) {
+  .cita-form__fila { flex-direction: column; }
+  .cita-form__pie { flex-direction: column; align-items: flex-start; }
+}

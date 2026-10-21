@@ -1,0 +1,82 @@
+.perfil-mascota {
+  --lz-verde: #24503f;
+  --lz-verde-claro: #e4ecd9;
+  --lz-crema: #faf8f1;
+  --lz-superficie: #fffdf8;
+  --lz-borde: #e3e0d5;
+  --lz-texto: #2b3a33;
+  --lz-suave: #6b7a72;
+  --lz-durazno: #f4e8da;
+  --lz-marron: #8a5a3c;
+  --lz-serif: "Lora", Georgia, serif;
+  --lz-sans: "Inter", system-ui, sans-serif;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  background: var(--lz-crema);
+  color: var(--lz-texto);
+  font-family: var(--lz-sans);
+}
+
+.perfil-mascota__migas { font-size: 0.75rem; color: var(--lz-suave); }
+.perfil-mascota__migas strong { color: var(--lz-verde); font-weight: 500; }
+
+.perfil-mascota__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.perfil-mascota__titulo {
+  margin: 0;
+  font-family: var(--lz-serif);
+  font-weight: 400;
+  font-size: 2.8rem;
+  color: var(--lz-verde);
+}
+
+.perfil-mascota__subtitulo { max-width: 520px; margin: 0.6rem 0 0; color: var(--lz-suave); font-size: 0.95rem; }
+
+.perfil-mascota__chip {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--lz-borde);
+  border-radius: 999px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lz-suave);
+}
+
+.perfil-mascota__tabs { display: flex; gap: 1.5rem; margin: 1.5rem 0; border-bottom: 1px solid var(--lz-borde); }
+
+.perfil-mascota__tab {
+  padding: 0.6rem 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--lz-suave);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.perfil-mascota__tab--activa { color: var(--lz-verde); border-bottom-color: var(--lz-verde); font-weight: 600; }
+
+.perfil-mascota__grid { display: grid; grid-template-columns: 1.9fr 1fr; gap: 1.25rem; align-items: start; }
+.perfil-mascota__col { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.perfil-mascota__triaje { padding: 1.5rem; background: var(--lz-verde-claro); border-radius: 14px; }
+.perfil-mascota__triaje h3 { margin: 0 0 0.6rem; font-family: var(--lz-serif); font-weight: 400; font-size: 1.5rem; color: var(--lz-verde); }
+.perfil-mascota__triaje p { margin: 0 0 0.8rem; font-size: 0.8rem; }
+.perfil-mascota__triaje button { padding: 0; border: none; background: none; color: var(--lz-verde); font-size: 0.8rem; cursor: pointer; }
+
+.perfil-mascota__vacio { padding: 2rem; text-align: center; color: var(--lz-suave); background: var(--lz-superficie); border: 1px solid var(--lz-borde); border-radius: 14px; }
+.perfil-mascota__nota { margin-top: 2rem; font-size: 0.7rem; color: var(--lz-suave); }
+
+@media (max-width: 800px) {
+  .perfil-mascota__grid { grid-template-columns: 1fr; }
+  .perfil-mascota__header { flex-direction: column; align-items: flex-start; }
+  .perfil-mascota__titulo { font-size: 2rem; }
+}
