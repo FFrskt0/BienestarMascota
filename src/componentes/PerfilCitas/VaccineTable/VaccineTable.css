@@ -1,0 +1,14 @@
+.vacunas { padding: 1.5rem; background: var(--lz-superficie); border: 1px solid var(--lz-borde); border-radius: 14px; }
+.vacunas__titulo { margin: 0 0 1rem; font-family: var(--lz-serif); font-weight: 400; font-size: 1.6rem; color: var(--lz-verde); }
+.vacunas__tabla { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.vacunas__tabla th { padding: 0.6rem 0.75rem; background: #f4f2e9; text-align: left; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lz-suave); }
+.vacunas__tabla td { padding: 1rem 0.75rem; border-bottom: 1px solid var(--lz-borde); }
+.vacunas__suave { color: var(--lz-suave); }
+.vacunas__estado { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 0.7rem; }
+.vacunas__estado--ok { background: var(--lz-verde-claro); color: var(--lz-verde); }
+.vacunas__estado--proxima { background: var(--lz-durazno); color: var(--lz-marron); }
+.vacunas__nota { margin: 1rem 0 0; font-size: 0.72rem; color: var(--lz-suave); }
+
+@media (max-width: 600px) {
+  .vacunas { overflow-x: auto; }
+}
