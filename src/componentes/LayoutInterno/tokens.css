@@ -1,0 +1,13 @@
+:root {
+  --lz-verde: #24503f;
+  --lz-verde-claro: #e4ecd9;
+  --lz-crema: #faf8f1;
+  --lz-superficie: #fffdf8;
+  --lz-borde: #e3e0d5;
+  --lz-texto: #2b3a33;
+  --lz-suave: #6b7a72;
+  --lz-durazno: #f4e8da;
+  --lz-marron: #8a5a3c;
+  --lz-serif: "Lora", Georgia, serif;
+  --lz-sans: "Inter", system-ui, sans-serif;
+}

@@ -1,0 +1,2 @@
+.lz-layout { display: flex; flex-direction: column; min-height: 100vh; background: var(--lz-crema); }
+.lz-layout__contenido { flex: 1; }
