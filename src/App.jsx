@@ -5,8 +5,8 @@ import AgendarCita from "./componentes//PerfilCitas/AgendarCita/AgendarCita";
 function App() {
   return (
     <LayoutInterno activo="mascota">
-      <PerfilMascota />
-      {/* <AgendarCita /> */} 
+      {/*<PerfilMascota /> */} 
+       <AgendarCita /> 
     </LayoutInterno>
   );
 };
