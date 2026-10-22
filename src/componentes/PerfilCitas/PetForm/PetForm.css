@@ -62,3 +62,7 @@
 .pet-form__button:hover {
   background: #e97720;
 }
+
+.pet-form__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.pet-form__actions .pet-form__button { flex: 1; }
+.pet-form__cancel { padding: 0.75rem 1rem; border: 1px solid #c8d8d7; border-radius: 8px; background: #fff; color: #17403d; cursor: pointer; }

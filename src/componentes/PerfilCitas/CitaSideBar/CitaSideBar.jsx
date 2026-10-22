@@ -1,9 +1,9 @@
 import foto from "../../../assets/veterinaria.jpg";
-import "./CitaSidebar.css";
+import "./CitaSideBar.css";
 
 const CONTACTO = [
-  { label: "Teléfono", valor: "+34 910 000 000", nota: "Atención durante el horario de la clínica." },
-  { label: "Correo", valor: "hola@lazo.example", nota: "Para consultas y solicitudes no urgentes." },
+  { label: "Teléfono de ejemplo", valor: "+34 910 000 000", nota: "Dato ficticio; no es un contacto operativo." },
+  { label: "Correo de ejemplo", valor: "hola@lazo.example", nota: "Dirección reservada para ejemplos; no recibe mensajes." },
   { label: "Ven a vernos", valor: "Calle del Olivo, 12 · Madrid", nota: "Dirección ficticia para esta maqueta." },
   { label: "Horario", valor: "Lunes a viernes · 09:00–19:00", nota: "Sábados · 10:00–14:00 / Domingos · Cerrado" },
 ];
@@ -15,12 +15,13 @@ export default function CitaSidebar() {
         <img src={foto} alt="Veterinaria revisando a un perro" />
         <div className="cita-sidebar__foto-texto">
           <h3>Cerca de ti.<br />Siempre de su lado.</h3>
-          <p>Si tienes dudas sobre qué servicio elegir, hablemos. Estamos aquí para ayudarte.</p>
+          <p>Esta maqueta no tiene atención operativa. Usa el formulario solo para probar el recorrido.</p>
         </div>
       </section>
 
       <section className="cita-sidebar__contacto">
         <h3>Hablemos</h3>
+        <p className="cita-sidebar__nota">Datos de contacto ficticios para esta demo.</p>
         <ul>
           {CONTACTO.map((c) => (
             <li key={c.label}>

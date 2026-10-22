@@ -1,12 +1,14 @@
 import "./UpcomingAppointments.css";
 
 export default function UpcomingAppointments({ citas, onAgendar }) {
+  const citasOrdenadas = [...citas].sort((a, b) => (a.fecha || "").localeCompare(b.fecha || ""));
+
   return (
     <section className="proximas">
       <h3 className="proximas__titulo">Próximas citas</h3>
 
       <ul className="proximas__lista">
-        {citas.map((c) => (
+        {citasOrdenadas.map((c) => (
           <li key={c.id} className="proximas__item">
             <div className="proximas__fecha">
               <strong>{c.dia}</strong>

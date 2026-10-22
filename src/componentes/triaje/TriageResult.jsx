@@ -1,26 +1,23 @@
-import React from 'react';
-
-export const TriageResult = ({ score, onReset }) => {
-  // Lógica de semáforo según el puntaje obtenido
+export const TriageResult = ({ score, onReset, onContinue }) => {
   let result = {
     color: '#28a745', // Verde
-    title: 'Nivel Verde (Bajo Riesgo)',
-    description: 'La mascota/paciente se encuentra estable. Se recomienda seguimiento sintomático rutinario y cita general.',
+    title: 'Nivel verde (orientativo)',
+    description: 'La puntuación es baja en este cuestionario. No confirma que la mascota esté sana ni sustituye una valoración profesional.',
     badge: 'Verde'
   };
 
   if (score >= 7) {
     result = {
       color: '#dc3545', // Rojo
-      title: 'Nivel Rojo (Atención Inmediata)',
-      description: 'Estado crítico. Requiere atención de urgencia médica/veterinaria inmediata.',
+      title: 'Nivel rojo (orientativo)',
+      description: 'La puntuación es alta. Contacta o acude a un servicio veterinario de urgencias.',
       badge: 'Rojo'
     };
   } else if (score >= 4) {
     result = {
       color: '#ffc107', // Amarillo
-      title: 'Nivel Amarillo (Prioridad Media)',
-      description: 'Presenta síntomas de cuidado. Se recomienda una consulta en las próximas horas.',
+      title: 'Nivel amarillo (orientativo)',
+      description: 'La puntuación sugiere pedir orientación veterinaria pronto. El cuestionario no determina un diagnóstico.',
       badge: 'Amarillo'
     };
   }
@@ -60,6 +57,22 @@ export const TriageResult = ({ score, onReset }) => {
       >
         Realizar otro triaje
       </button>
+      {score < 7 && (
+        <button
+          onClick={onContinue}
+          style={{
+            marginLeft: '8px',
+            padding: '8px 16px',
+            backgroundColor: '#24503f',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Continuar a solicitud de cita
+        </button>
+      )}
     </div>
   );
 };

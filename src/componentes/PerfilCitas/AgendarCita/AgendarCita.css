@@ -21,6 +21,7 @@
 
 .agendar-cita__migas { font-size: 0.75rem; color: var(--lz-suave); }
 .agendar-cita__migas strong { color: var(--lz-verde); font-weight: 500; }
+.agendar-cita__migas button { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
 
 .agendar-cita__header { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; margin: 1rem 0 2rem; }
 .agendar-cita__titulo { margin: 0; font-family: var(--lz-serif); font-weight: 400; font-size: 2.8rem; color: var(--lz-verde); }

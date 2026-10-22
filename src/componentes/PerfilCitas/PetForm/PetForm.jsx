@@ -1,11 +1,17 @@
-// src/components/PetForm/PetForm.jsx
 import { useState } from "react";
 import "./PetForm.css";
 
 const INITIAL_STATE = { nombre: "", especie: "Perro", edad: "", peso: "" };
 
-export default function PetForm({ onAddPet }) {
-  const [formData, setFormData] = useState(INITIAL_STATE);
+export default function PetForm({ mascota, onSave, onCancel }) {
+  const [formData, setFormData] = useState(() => mascota
+    ? {
+        nombre: mascota.nombre,
+        especie: mascota.especie,
+        edad: Number.parseInt(mascota.edad, 10) || "",
+        peso: Number.parseFloat(String(mascota.peso).replace(",", ".")) || "",
+      }
+    : INITIAL_STATE);
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -15,19 +21,18 @@ export default function PetForm({ onAddPet }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.nombre.trim() || formData.edad === "") {
+    if (!formData.nombre.trim() || formData.edad === "" || Number(formData.edad) < 0 || (formData.peso !== "" && Number(formData.peso) < 0)) {
       setError("Completa al menos el nombre y la edad de tu mascota.");
       return;
     }
 
-    onAddPet({ ...formData, nombre: formData.nombre.trim(), id: Date.now() });
-    setFormData(INITIAL_STATE);
+    onSave({ ...formData, nombre: formData.nombre.trim() });
     setError("");
   };
 
   return (
     <form className="pet-form" onSubmit={handleSubmit}>
-      <h3 className="pet-form__title">Registrar mascota</h3>
+      <h3 className="pet-form__title">{mascota ? "Editar perfil de mascota" : "Registrar mascota"}</h3>
 
       <label className="pet-form__field">
         Nombre
@@ -56,7 +61,10 @@ export default function PetForm({ onAddPet }) {
 
       {error && <p className="pet-form__error">{error}</p>}
 
-      <button type="submit" className="pet-form__button">Guardar mascota</button>
+      <div className="pet-form__actions">
+        <button type="submit" className="pet-form__button">{mascota ? "Guardar cambios" : "Guardar mascota"}</button>
+        <button type="button" className="pet-form__cancel" onClick={onCancel}>Cancelar</button>
+      </div>
     </form>
   );
 }

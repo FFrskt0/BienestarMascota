@@ -7,7 +7,7 @@ const FILAS = [
   ["mascota", "cita"],
 ];
 
-export default function FooterInterno({ onNavegar = () => {} }) {
+export default function FooterInterno({ onNavegar }) {
   const ir = (e, id) => {
     e.preventDefault();
     onNavegar(id);
@@ -58,9 +58,9 @@ export default function FooterInterno({ onNavegar = () => {} }) {
         <div className="lz-footer__pie">
           <span>© Lazo 2026 · Maqueta conceptual. Datos e información de ejemplo.</span>
           <span className="lz-footer__legal">
-            <a href="#privacidad">Privacidad</a>
-            <a href="#cookies">Cookies</a>
-            <a href="#aviso-legal">Aviso legal</a>
+            <span>Privacidad (ejemplo)</span>
+            <span>Cookies (ejemplo)</span>
+            <span>Aviso legal (ejemplo)</span>
           </span>
         </div>
       </div>

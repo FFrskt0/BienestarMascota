@@ -9,7 +9,7 @@ export default function LastVisitCard({ visita }) {
       </div>
       <p className="ultima-visita__titulo">{visita.titulo}</p>
       <p className="ultima-visita__detalle">{visita.detalle}</p>
-      <button className="ultima-visita__link">Ver informe de ejemplo ↗</button>
+      <p className="ultima-visita__link">Resumen ilustrativo · No es un informe clínico real.</p>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import miloFoto from "../assets/milo.jpg";
 
 export const mascota = {
+  id: 1,
   nombre: "Milo",
   raza: "Golden retriever",
   sexo: "Macho",
@@ -20,8 +21,8 @@ export const vacunas = [
 ];
 
 export const citas = [
-  { id: 1, dia: "27", mes: "OCT 2026", titulo: "Revisión preventiva", doctora: "Dra. Elena Ruiz", duracion: "30 min", hora: "10:30 h", modalidad: "Presencial" },
-  { id: 2, dia: "10", mes: "NOV 2026", titulo: "Vacunación · Rabia", doctora: "Dra. Elena Ruiz", duracion: "20 min", hora: "17:00 h", modalidad: "Presencial" },
+  { id: 1, fecha: "2026-10-27", mascota: "Milo · Perro", dia: "27", mes: "OCT 2026", titulo: "Revisión preventiva", doctora: "Dra. Elena Ruiz", duracion: "30 min", hora: "10:30 h", modalidad: "Presencial" },
+  { id: 2, fecha: "2026-11-10", mascota: "Milo · Perro", dia: "10", mes: "NOV 2026", titulo: "Vacunación · Rabia", doctora: "Dra. Elena Ruiz", duracion: "20 min", hora: "17:00 h", modalidad: "Presencial" },
 ];
 
 export const ultimaVisita = {

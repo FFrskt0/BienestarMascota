@@ -1,25 +1,26 @@
 import { useState } from "react";
-import { mascotasUsuario, servicios, horarios } from "../../../data/mascotaData";
+import { servicios, horarios } from "../../../data/mascotaData";
 import "./AppointmentForm.css";
 
-const INITIAL_STATE = {
+const crearEstadoInicial = (mascotas, servicioInicial, notasIniciales) => ({
   dueno: "",
   telefono: "",
   correo: "",
-  mascota: mascotasUsuario[0].label,
-  servicio: servicios[0].nombre,
+  mascota: mascotas[0]?.label || "",
+  servicio: servicios.some((servicio) => servicio.nombre === servicioInicial) ? servicioInicial : servicios[0].nombre,
   fecha: "",
   hora: "",
-  notas: "",
+  notas: notasIniciales || "",
   privacidad: false,
-};
+});
 
-export default function AppointmentForm() {
-  const [form, setForm] = useState(INITIAL_STATE);
+export default function AppointmentForm({ mascotas, servicioInicial, notasIniciales, onSubmitSolicitud }) {
+  const [form, setForm] = useState(() => crearEstadoInicial(mascotas, servicioInicial, notasIniciales));
   const [errors, setErrors] = useState({});
   const [enviado, setEnviado] = useState(false);
 
-  const hoy = new Date().toISOString().split("T")[0];
+  const ahora = new Date();
+  const hoy = `${ahora.getFullYear()}-${String(ahora.getMonth() + 1).padStart(2, "0")}-${String(ahora.getDate()).padStart(2, "0")}`;
   const servicioActual = servicios.find((s) => s.nombre === form.servicio);
 
   const handleChange = (e) => {
@@ -33,8 +34,10 @@ export default function AppointmentForm() {
     if (!/^[+\d\s]{9,16}$/.test(form.telefono.trim())) err.telefono = "Ingresa un teléfono válido.";
     if (!/^\S+@\S+\.\S+$/.test(form.correo)) err.correo = "Ingresa un correo válido.";
     if (!form.fecha) err.fecha = "Elige una fecha.";
+    else if (form.fecha < hoy) err.fecha = "Elige una fecha de hoy o posterior.";
     if (!form.hora) err.hora = "Elige un horario.";
-    if (!form.privacidad) err.privacidad = "Debes aceptar la política de privacidad.";
+    if (!form.mascota) err.mascota = "Registra o selecciona una mascota.";
+    if (!form.privacidad) err.privacidad = "Confirma que entiendes cómo se usan los datos en esta demo.";
     return err;
   };
 
@@ -42,7 +45,10 @@ export default function AppointmentForm() {
     e.preventDefault();
     const err = validar();
     setErrors(err);
-    if (Object.keys(err).length === 0) setEnviado(true);
+    if (Object.keys(err).length === 0) {
+      onSubmitSolicitud(form);
+      setEnviado(true);
+    }
   };
 
   if (enviado) {
@@ -52,11 +58,12 @@ export default function AppointmentForm() {
         <p>
           Recibimos tu solicitud de <strong>{form.servicio}</strong> para <strong>{form.mascota}</strong> el {form.fecha} a las {form.hora}.
         </p>
-        <p className="cita-form__aviso">Tu cita aún no está confirmada. Te contactaremos al {form.telefono}.</p>
+        <p className="cita-form__aviso">La solicitud aparece en las próximas citas de esta demo. No se ha enviado a la clínica; la cita aún no está confirmada.</p>
         <button
           className="cita-form__boton"
           onClick={() => {
-            setForm(INITIAL_STATE);
+            setForm(crearEstadoInicial(mascotas, servicioInicial, notasIniciales));
+            setErrors({});
             setEnviado(false);
           }}
         >
@@ -76,7 +83,7 @@ export default function AppointmentForm() {
       {/* Paso 1 */}
       <fieldset className="cita-form__paso">
         <legend><span className="cita-form__num">01</span> Primero, hablemos de ti</legend>
-        <p className="cita-form__ayuda">Usaremos estos datos para confirmar tu cita.</p>
+        <p className="cita-form__ayuda">Campos de demostración: estos datos no se envían a una clínica.</p>
 
         <label className="cita-form__campo">
           Nombre y apellidos del dueño *
@@ -107,10 +114,11 @@ export default function AppointmentForm() {
           <label className="cita-form__campo">
             Mascota *
             <select name="mascota" value={form.mascota} onChange={handleChange}>
-              {mascotasUsuario.map((m) => (
+              {mascotas.map((m) => (
                 <option key={m.id}>{m.label}</option>
               ))}
             </select>
+            {errors.mascota && <span className="cita-form__error">{errors.mascota}</span>}
           </label>
           <label className="cita-form__campo">
             Servicio *
@@ -164,14 +172,14 @@ export default function AppointmentForm() {
 
       <label className="cita-form__check">
         <input name="privacidad" type="checkbox" checked={form.privacidad} onChange={handleChange} />
-        He leído la política de privacidad y consiento el uso de mis datos para gestionar esta solicitud de cita. *
+        Entiendo que esta demo no envía mis datos a una clínica y que la solicitud se guarda localmente en este navegador. *
       </label>
       {errors.privacidad && <span className="cita-form__error">{errors.privacidad}</span>}
 
       <div className="cita-form__pie">
         <div>
           <strong>Tu cita aún no está confirmada.</strong>
-          <p>Te contactaremos para confirmar la disponibilidad.</p>
+          <p>Esta demo no contacta con la clínica ni verifica horarios.</p>
         </div>
         <button type="submit" className="cita-form__boton">Solicitar cita ↗</button>
       </div>

@@ -32,7 +32,7 @@ export default function PetProfileCard({ mascota, onEditar }) {
 
         <div className="pet-card__pie">
           <span>Su persona: {dueno} · Peso registrado el {pesoFecha}</span>
-          <button className="pet-card__editar" onClick={onEditar}>Editar perfil ↗</button>
+          <button type="button" className="pet-card__editar" onClick={onEditar}>Editar perfil ↗</button>
         </div>
       </div>
     </article>

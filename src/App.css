@@ -1,0 +1,81 @@
+.app-pagina {
+  max-width: 1100px;
+  min-height: 55vh;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: var(--lz-texto);
+}
+
+.app-pagina > h1 {
+  max-width: 760px;
+  margin: 0 0 1rem;
+  color: var(--lz-verde);
+  font: 400 clamp(2.3rem, 6vw, 4.5rem)/1.08 var(--lz-serif);
+}
+
+.app-pagina > p:not(.app-pagina__eyebrow) {
+  max-width: 620px;
+  color: var(--lz-suave);
+  line-height: 1.7;
+}
+
+.app-pagina__eyebrow {
+  margin: 0 0 1rem;
+  color: var(--lz-marron);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.app-pagina__acciones { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.app-pagina__acciones button,
+.app-servicios__tarjeta button,
+.app-triaje > button,
+.perfil-mascota__vacio button {
+  padding: 0.8rem 1.25rem;
+  border: 1px solid var(--lz-verde);
+  border-radius: 999px;
+  background: var(--lz-verde);
+  color: #fff;
+  cursor: pointer;
+}
+.app-pagina__acciones .app-pagina__secundario { background: transparent; color: var(--lz-verde); }
+
+.app-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.app-servicios__tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--lz-borde);
+  border-radius: 14px;
+  background: var(--lz-superficie);
+}
+.app-servicios__tarjeta h2 { margin: 0; color: var(--lz-verde); font: 400 1.4rem var(--lz-serif); }
+.app-servicios__tarjeta p { margin: 0; color: var(--lz-suave); }
+.app-servicios__tarjeta span { margin-top: auto; color: var(--lz-suave); font-size: 0.8rem; }
+
+.app-triaje {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 700px;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--lz-borde);
+  border-radius: 14px;
+  background: var(--lz-superficie);
+}
+.app-triaje h2 { margin: 0; color: var(--lz-verde); font: 400 1.6rem var(--lz-serif); }
+.app-triaje label { display: flex; align-items: flex-start; gap: 0.6rem; color: var(--lz-texto); }
+.app-triaje__detalle { flex-direction: column; }
+.app-triaje textarea { width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1px solid var(--lz-borde); border-radius: 8px; font: inherit; }
+.app-triaje > p { margin: 0; color: var(--lz-suave); font-size: 0.85rem; line-height: 1.6; }
+.app-triaje > button { align-self: flex-start; }
+.app-aviso { margin: 1rem auto; max-width: 1060px; padding: 0.8rem 1rem; border-radius: 8px; background: #fff1d8; color: #603d0b; }
+
+@media (max-width: 600px) {
+  .app-pagina { padding: 2.5rem 1rem; }
+  .app-pagina__acciones { align-items: stretch; flex-direction: column; }
+}

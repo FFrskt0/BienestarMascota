@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ENLACES, CITA } from "../../../data/navegacion";
 import "./HeaderInterno.css";
 
-export default function HeaderInterno({ activo, onNavegar = () => {} }) {
+export default function HeaderInterno({ activo, onNavegar }) {
   const [abierto, setAbierto] = useState(false);
 
   const ir = (e, id) => {

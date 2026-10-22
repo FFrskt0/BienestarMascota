@@ -1,31 +1,36 @@
 import AppointmentForm from "../AppointmentForm/AppointmentForm";
-import CitaSidebar from "../CitaSidebar/CitaSidebar";
+import CitaSidebar from "../CitaSideBar/CitaSideBar";
 import "./AgendarCita.css";
 
-export default function AgendarCita() {
+export default function AgendarCita({ mascotas, servicioInicial, notasIniciales, onSubmitSolicitud, onVolver }) {
   return (
     <main className="agendar-cita">
       <nav className="agendar-cita__migas" aria-label="Migas de pan">
-        Inicio <span>/</span> Agendar cita <span>/</span> <strong>Contacto</strong>
+        <button type="button" onClick={onVolver}>Mi mascota</button> <span>/</span> <strong>Agendar cita</strong>
       </nav>
 
       <header className="agendar-cita__header">
         <div>
           <h1 className="agendar-cita__titulo">Un momento para cuidar de él.</h1>
           <p className="agendar-cita__subtitulo">
-            Elige el cuidado que necesita tu mascota y cuéntanos cuándo te viene bien. Nuestro equipo te acompañará en el siguiente paso.
+            Elige un cuidado y un horario de preferencia. En esta demo la solicitud no se envía ni se confirma con una clínica.
           </p>
         </div>
         <span className="agendar-cita__chip">Cita y contacto</span>
       </header>
 
       <div className="agendar-cita__grid">
-        <AppointmentForm />
+        <AppointmentForm
+          mascotas={mascotas}
+          servicioInicial={servicioInicial}
+          notasIniciales={notasIniciales}
+          onSubmitSolicitud={onSubmitSolicitud}
+        />
         <CitaSidebar />
       </div>
 
       <p className="agendar-cita__nota">
-        Maqueta conceptual: formulario sin envío. Datos personales, contacto, horarios y disponibilidad son ejemplos ficticios.
+        Demo local: la solicitud queda guardada en este navegador, pero no se envía a una clínica ni confirma disponibilidad.
       </p>
     </main>
   );

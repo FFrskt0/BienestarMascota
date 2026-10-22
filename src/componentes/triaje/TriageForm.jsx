@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { TriageQuestion } from './TriageQuestion';
 import { TriageResult } from './TriageResult';
 
@@ -23,7 +23,7 @@ const QUESTIONS = [
   },
   {
     id: 3,
-    text: '3. ¿Ha tenido sangrado sangrado visible o traumatismo reciente?',
+    text: '3. ¿Ha tenido sangrado visible o traumatismo reciente?',
     options: [
       { label: 'Ninguno', value: 0 },
       { label: 'Leve / Herida superficial', value: 1 },
@@ -32,12 +32,12 @@ const QUESTIONS = [
   }
 ];
 
-export const TriageForm = () => {
+export const TriageForm = ({ onContinuar }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
 
-  const handleAnswer = (questionId, value) => {
+  const handleAnswer = (value) => {
     const nextScore = totalScore + value;
     setTotalScore(nextScore);
 
@@ -56,7 +56,12 @@ export const TriageForm = () => {
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h1>Triaje Preventivo Mascotas</h1>
+      <h1>Triaje preventivo</h1>
+      <p>
+        Este cuestionario es orientativo, no diagnostica ni sustituye la valoración veterinaria.
+        Si hay dificultad respiratoria, inconsciencia o sangrado abundante, acude de inmediato
+        a un centro veterinario de urgencias.
+      </p>
       <hr style={{ marginBottom: '20px' }} />
 
       {!isFinished ? (
@@ -69,7 +74,11 @@ export const TriageForm = () => {
           />
         </>
       ) : (
-        <TriageResult score={totalScore} onReset={handleReset} />
+        <TriageResult
+          score={totalScore}
+          onReset={handleReset}
+          onContinue={() => onContinuar(`Resultado orientativo del triaje: ${totalScore} puntos.`)}
+        />
       )}
     </div>
   );

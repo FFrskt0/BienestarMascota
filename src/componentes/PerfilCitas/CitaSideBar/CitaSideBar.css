@@ -8,6 +8,7 @@
 
 .cita-sidebar__contacto { padding: 1.5rem; background: var(--lz-superficie); border: 1px solid var(--lz-borde); border-radius: 14px; }
 .cita-sidebar__contacto h3 { margin: 0 0 1rem; font-family: var(--lz-serif); font-weight: 400; font-size: 1.5rem; color: var(--lz-verde); }
+.cita-sidebar__nota { margin: -0.5rem 0 1rem; font-size: 0.72rem; color: var(--lz-suave); }
 .cita-sidebar__contacto ul { display: flex; flex-direction: column; gap: 1rem; margin: 0; padding: 0; list-style: none; }
 .cita-sidebar__contacto li { display: flex; flex-direction: column; gap: 0.15rem; }
 .cita-sidebar__label { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lz-suave); }

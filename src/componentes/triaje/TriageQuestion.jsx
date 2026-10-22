@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const TriageQuestion = ({ question, options, onAnswer }) => {
   return (
     <div style={{ marginBottom: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '8px' }}>
@@ -8,7 +6,7 @@ export const TriageQuestion = ({ question, options, onAnswer }) => {
         {options.map((option, index) => (
           <button
             key={index}
-            onClick={() => onAnswer(question.id, option.value)}
+            onClick={() => onAnswer(option.value)}
             style={{
               padding: '10px',
               cursor: 'pointer',

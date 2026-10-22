@@ -4,4 +4,4 @@
 .ultima-visita__top span { font-size: 0.7rem; color: var(--lz-suave); }
 .ultima-visita__titulo { margin: 1rem 0 0.3rem; font-size: 0.85rem; font-weight: 500; color: var(--lz-verde); }
 .ultima-visita__detalle { margin: 0 0 0.5rem; font-size: 0.78rem; color: var(--lz-suave); }
-.ultima-visita__link { padding: 0; border: none; background: none; color: var(--lz-verde); font-size: 0.75rem; cursor: pointer; }
+.ultima-visita__link { margin: 0; color: var(--lz-suave); font-size: 0.75rem; }
