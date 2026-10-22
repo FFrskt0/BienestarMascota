@@ -1,13 +1,11 @@
-import PerfilMascota from "./componentes/PerfilCitas/PerfilMascota/PerfilMascota";
-import AgendarCita from "./componentes//PerfilCitas/AgendarCita/AgendarCita";
+import { TriageForm } from './components/triaje/TriageForm';
 
 function App() {
   return (
-    <>
-    <PerfilMascota />
-    <AgendarCita /> 
-    </>
+    <main>
+      <TriageForm />
+    </main>
   );
-};
+}
 
-export default App
+export default App;
